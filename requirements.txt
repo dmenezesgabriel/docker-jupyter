@@ -1,3 +1,10 @@
 jupyter
 jupyterlab
 pandas
+numpy
+matplotlib
+pytest
+pyarrow
+pytz
+tqdm
+psycopg2

@@ -24,9 +24,20 @@ RUN pip install -r requirements.txt
 # Copy Configs
 COPY ./conf/ /usr/local/etc/jupyter
 COPY ./settings/ /usr/local/share/jupyter/lab/settings
-# Copy project
+# Copy notebooks folder
 COPY nbs/ /usr/src/app/nbs/
+# Copy entrypoint
+COPY scripts/entrypoint.sh /usr/src/app/entrypoint.sh
+# Install extensions
 RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
+    jupyter labextension install @krassowski/jupyterlab-lsp --no-build && \
+    jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
+    jupyter labextension install @jupyterlab/toc --no-build && \
+    jupyter labextension install jupyterlab-drawio --no-build && \
+    jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
+    jupyter labextension install @krassowski/jupyterlab_go_to_definition --no-build && \
     jupyter lab build
-
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root"]
+# Give permissions
+CMD ["chmod", "+x", "/usr/src/app/entrypoint.sh"]
+# Run entrypoint
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

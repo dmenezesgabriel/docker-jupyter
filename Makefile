@@ -1,5 +1,5 @@
 build:
-	docker build -t jupyter-analytics -f Dockerfile .
+	docker build --no-cache -t jupyter-analytics -f Dockerfile .
 
 run-sh:
 	docker run --rm -it -v "$(PWD)"/nbs:/app/nbs/:z jupyter-analytics /bin/sh
