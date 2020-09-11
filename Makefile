@@ -1,8 +1,16 @@
-build:
+# Docker commands
+docker-build:
 	docker build --no-cache -t jupyter-analytics -f Dockerfile .
 
-run-sh:
+docker-run-sh:
 	docker run --rm -it -v "$(PWD)"/nbs:/app/nbs/:z jupyter-analytics /bin/sh
 
-run:
+docker-run:
 	docker run --rm -it -v "$(PWD)"/nbs:/app/nbs/:z --env PORT=8888 -p 8888:8888 jupyter-analytics
+
+# Docker Compose comands
+build:
+	docker-compose build --no-cache jupyter-analytics
+
+run:
+	docker-compose up jupyter-analytics
