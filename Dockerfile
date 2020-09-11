@@ -8,6 +8,9 @@ WORKDIR ${APP_HOME}
 ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr (equivalent to python -u option)
 ENV PYTHONBUFFERED 1
+# Language
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     curl
@@ -25,15 +28,15 @@ RUN pip install -r requirements.txt
 COPY ./conf/ /usr/local/etc/jupyter
 COPY ./settings/ /usr/local/share/jupyter/lab/settings
 # Copy notebooks folder
-COPY nbs/ /usr/src/app/nbs/
+COPY ./nbs/ /usr/src/app/nbs/
 # Copy entrypoint
 COPY scripts/entrypoint.sh /usr/src/app/entrypoint.sh
 # Install extensions
 RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install @krassowski/jupyterlab-lsp --no-build && \
+    jupyter labextension install jupyterlab-flake8 --no-build && \
     jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
-    jupyter labextension install jupyterlab-drawio --no-build && \
     jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
     jupyter labextension install @krassowski/jupyterlab_go_to_definition --no-build && \
     jupyter lab build

@@ -1,0 +1,10 @@
+version:  '3'
+services:
+  jupyter-analytics:
+      build: .
+      volumes:
+        - ./nbs/:/usr/src/app/nbs/:z
+      ports:
+        - 8888:8888
+      env_file:
+        - ./.env
