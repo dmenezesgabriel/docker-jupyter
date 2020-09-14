@@ -1,5 +1,6 @@
 nbs/*
 !nbs/template/
+!nbs/utils/
 .pytest_cache/
 .env
 .ipynb_checkpoints
