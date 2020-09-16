@@ -1,6 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Files
 nbs/*
 !nbs/template/
 !nbs/utils/
 .pytest_cache/
 .env
+
+# Jupyter
 .ipynb_checkpoints
