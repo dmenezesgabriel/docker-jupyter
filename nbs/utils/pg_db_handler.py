@@ -1,6 +1,6 @@
+import pandas as pd
 import psycopg2
 import psycopg2.extras
-import pandas as pd
 
 
 class DatabaseHandler:
@@ -27,8 +27,7 @@ class DatabaseHandler:
         """
         Establish connection with the database
         """
-        return psycopg2.connect(
-            self.database_uri, connect_timeout=10)
+        return psycopg2.connect(self.database_uri, connect_timeout=10)
 
     def _reconnect(self):
         """
@@ -44,10 +43,10 @@ class DatabaseHandler:
         self._connection.close()
 
     def cursor(self):
-        """Create cursors
-        """
+        """Create cursors"""
         return self.connection.cursor(
-            cursor_factory=psycopg2.extras.RealDictCursor)
+            cursor_factory=psycopg2.extras.RealDictCursor
+        )
 
     def db_connector(func):
         """
@@ -56,6 +55,7 @@ class DatabaseHandler:
         :func: Database related function which uses
         :return:DatabaseHandler connection
         """
+
         def with_connection(self, *args, **kwargs):
             self._reconnect()
             try:
@@ -64,6 +64,7 @@ class DatabaseHandler:
                 print(f"Error: {error}")
 
             return result
+
         return with_connection
 
     @db_connector

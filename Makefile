@@ -10,7 +10,7 @@ docker-run:
 
 # Docker Compose comands
 build:
-	docker-compose build --no-cache jupyter-analytics
+	docker-compose build jupyter-analytics
 
 run:
 	docker-compose up jupyter-analytics
