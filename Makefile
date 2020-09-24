@@ -10,7 +10,7 @@ docker-run:
 
 # Docker Compose comands
 build:
-	docker-compose build jupyter-analytics
+	time docker-compose build jupyter-analytics
 
 run:
 	docker-compose up jupyter-analytics
