@@ -1,5 +1,5 @@
 {
-    "@jupyterlab/apputils-extension:themes": {
-      "theme": "Dracula"
-    }
+  "@jupyterlab/apputils-extension:themes": {
+    "theme": "Dracula"
+  }
 }

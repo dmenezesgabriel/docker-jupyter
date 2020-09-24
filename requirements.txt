@@ -1,8 +1,12 @@
 autopep8
+black
 flake8
+isort
 jupyter
 jupyter-lsp
 JupyterLab >=2.2.0,<3.0.0a0
+jupyterlab_code_formatter
+jupyterlab-git
 matplotlib
 numpy
 pandas
@@ -12,8 +16,5 @@ pydocstyle
 pylint
 pytest
 python-language-server[all]
-pytz
-SQLAlchemy
-tqdm
-yapf
 rope
+yapf

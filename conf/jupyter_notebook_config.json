@@ -1,17 +1,20 @@
 {
-    "language_servers": {
-      "pyls": {
-        "serverSettings": {
-          "pyls.plugins.pydocstyle.enabled": true,
-          "pyls.plugins.pyflakes.enabled": false,
-          "pyls.plugins.flake8.enabled": true
-        }
-      },
-      "r-languageserver": {
-        "serverSettings": {
-          "r.lsp.debug": false,
-          "r.lsp.diagnostics": false
-        }
+  "language_servers": {
+    "pyls": {
+      "serverSettings": {
+        "pyls.plugins.pydocstyle.enabled": true,
+        "pyls.plugins.pyflakes.enabled": false,
+        "pyls.plugins.flake8.enabled": true
+      }
+    },
+    "r-languageserver": {
+      "serverSettings": {
+        "r.lsp.debug": false,
+        "r.lsp.diagnostics": false
       }
     }
+  },
+  "codeCellConfig": {
+    "lineNumbers": true
+  }
 }
