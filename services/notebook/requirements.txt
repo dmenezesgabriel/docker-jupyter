@@ -1,0 +1,4 @@
+notebook==6.1.4
+autopep8==1.5.4
+isort==5.5.3
+black==20.8b1

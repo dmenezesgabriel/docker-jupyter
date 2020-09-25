@@ -22,7 +22,7 @@ RUN apt-get install -y nodejs
 RUN node -v
 # npm installs automatically
 RUN npm -v
-# install python dependencies
+# Install python dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r /usr/src/app/requirements.txt
@@ -42,4 +42,4 @@ RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
 # Copy entrypoint
 COPY scripts/entrypoint.sh $HOME
 # run entrypoint.prod.sh
-ENTRYPOINT ["/home/entrypoint.sh"]
+# ENTRYPOINT ["/home/entrypoint.sh"]

@@ -12,3 +12,4 @@ nbs/*
 
 # Jupyter
 .ipynb_checkpoints
+.vscode
