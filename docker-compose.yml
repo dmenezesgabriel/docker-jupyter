@@ -1,11 +1,26 @@
 version: "3"
 services:
-  jupyter-analytics:
+  jupyter-lab:
     container_name: jupyter_analytics
-    build: .
+    build:
+      context: ./services/lab
+      dockerfile: Dockerfile
     volumes:
       - ./nbs/:/home/lab/nbs/:z
     ports:
       - 8888:8888
     env_file:
       - ./.env
+    command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root
+
+  jupyter-notebook:
+    build:
+      context: ./services/notebook
+      dockerfile: Dockerfile
+    volumes:
+      - ./nbs/:/home/notebook/nbs/:z
+    ports:
+      - 8888:8888
+    env_file:
+      - ./.env
+    command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root

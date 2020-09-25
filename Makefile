@@ -1,16 +1,11 @@
-# Docker commands
-docker-build:
-	docker build --rm --no-cache -t jupyter-analytics -f Dockerfile .
+build-lab:
+	time docker-compose build jupyter-lab
 
-docker-run-sh:
-	docker run --rm -it -v "$(PWD)"/nbs:/app/nbs/:z jupyter-analytics /bin/sh
+run-lab:
+	docker-compose up jupyter-lab
 
-docker-run:
-	docker run --rm -it -v "$(PWD)"/nbs:/app/nbs/:z --env PORT=8888 -p 8888:8888 jupyter-analytics
+build-notebook:
+	time docker-compose build jupyter-notebook
 
-# Docker Compose comands
-build:
-	time docker-compose build jupyter-analytics
-
-run:
-	docker-compose up jupyter-analytics
+run-notebook:
+	docker-compose up jupyter-notebook
