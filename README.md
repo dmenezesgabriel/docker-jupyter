@@ -1,29 +1,40 @@
 # Jupyter Analytics
 
-## Features
+## Jypyter lab
 
+### Features
+
+- Oh my ZSH terminal
 - Dracula theme
-- Markdown spellcheck extension
-- Table fo contents extension
-- Collapsible headers extension
+- Markdown cells spellcheck (en_US)
+- Code completion
+- Code formatter
+- Table fo contents
+- Collapsible headers
 
-## Requirements
+### Requirements
 
 - Docker
 - Docker Compose
 
-## Usage
+### Usage
 
-1. Create a `.env` based on `.env.template` replacing the desired variables
-2. Build the image:
+1. Build the image:
    ```sh
-   make build
+   make build-lab
    ```
-3. Run the container:
+2. Run the container:
    ```sh
-   make run
+   make run-lab
    ```
 
-## TODO
+- **Activate zsh**:
+  Use the command below on terminal
 
-- Recursively install requirements for each nbs folder
+```sh
+zsh
+```
+
+### TODO
+
+- Portuguese spellchecker

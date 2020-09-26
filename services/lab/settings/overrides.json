@@ -1,5 +1,13 @@
 {
   "@jupyterlab/apputils-extension:themes": {
     "theme": "Dracula"
-  }
+  },
+  "codeCellConfig": { "lineNumbers": true },
+  "shortcuts": [
+    {
+      "command": "runmenu:restart-and-run-all",
+      "keys": ["Ctrl Shift R"],
+      "selector": "[data-jp-code-runner]"
+    }
+  ]
 }
