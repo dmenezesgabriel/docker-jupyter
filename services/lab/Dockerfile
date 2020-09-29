@@ -14,7 +14,7 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 # Install system dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    curl git zsh tree
+    curl git vim zsh tree
 # Install Oh my Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -y
 RUN chsh -s $(which zsh)

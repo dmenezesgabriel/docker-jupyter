@@ -13,8 +13,5 @@
         "r.lsp.diagnostics": false
       }
     }
-  },
-  "codeCellConfig": {
-    "lineNumbers": true
   }
 }
