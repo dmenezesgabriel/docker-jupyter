@@ -1,10 +1,8 @@
 version: "3"
 services:
   jupyter-lab:
-    container_name: jupyter_analytics
     build:
       context: ./services/lab
-      dockerfile: Dockerfile
     volumes:
       - ./nbs/:/home/lab/nbs/:z
     ports:
@@ -13,11 +11,11 @@ services:
     tty: true # docker run -t
     env_file:
       - ./.env
-    command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root --port=8888
+    command: jupyter lab --no-browser --allow-root --port=8888
 
   nginx:
     build: ./services/nginx
     ports:
-      - 1337:8888
-    links:
+      - 1337:80
+    depends_on:
       - "jupyter-lab"
