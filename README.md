@@ -20,11 +20,17 @@
 
 ### Usage
 
-1. Build the image:
+1. Generate a password and replace it on /services/lab/conf/jupyter.py
+
+```sh
+ipython -c "from notebook.auth import passwd; passwd()"
+```
+
+2. Build the image:
    ```sh
    make build-lab
    ```
-2. Run the container:
+3. Run the container:
    ```sh
    make run-lab
    ```
