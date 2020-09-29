@@ -9,8 +9,8 @@ services:
       - ./nbs/:/home/lab/nbs/:z
     ports:
       - 8888:8888
-    env_file:
-      - ./.env
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
     command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root
 
   jupyter-notebook:
@@ -21,6 +21,4 @@ services:
       - ./nbs/:/home/notebook/nbs/:z
     ports:
       - 8888:8888
-    env_file:
-      - ./.env
     command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root

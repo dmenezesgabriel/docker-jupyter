@@ -18,3 +18,4 @@ pytest
 python-language-server[all]
 rope
 yapf
+voila
