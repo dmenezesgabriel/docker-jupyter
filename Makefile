@@ -8,7 +8,7 @@ lab-sh:
 	docker-compose run --rm jupyter-lab /bin/sh
 
 build-notebook:
-	time docker-compose build jupyter-notebook
+	time docker-compose -f docker-compose.notebook.yml build jupyter-notebook
 
 run-notebook:
-	docker-compose up jupyter-notebook
+	docker-compose -f docker-compose.notebook.yml up jupyter-notebook

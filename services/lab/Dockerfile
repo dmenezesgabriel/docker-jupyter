@@ -32,8 +32,9 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r /usr/src/app/requirements.txt
 # Copy Configs
-COPY ./conf/ /usr/local/etc/jupyter
-COPY ./settings/ /usr/local/share/jupyter/lab/settings
+COPY ./configs/jupyter_notebook_config.py /home/.jupyter/jupyter_notebook_config.py
+COPY ./configs/jupyter_notebook_config.json /usr/local/etc/jupyter/jupyter_notebook_config.json
+COPY ./configs/overrides.json /usr/local/share/jupyter/lab/settings/overrides.json
 # Install extensions
 RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install @krassowski/jupyterlab-lsp --no-build && \

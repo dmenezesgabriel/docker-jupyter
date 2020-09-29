@@ -11,14 +11,13 @@ services:
       - 8888:8888
     stdin_open: true # docker run -i
     tty: true # docker run -t
-    command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root
+    env_file:
+      - ./.env
+    command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root --port=8888
 
-  jupyter-notebook:
-    build:
-      context: ./services/notebook
-      dockerfile: Dockerfile
-    volumes:
-      - ./nbs/:/home/notebook/nbs/:z
+  nginx:
+    build: ./services/nginx
     ports:
-      - 8888:8888
-    command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
+      - 1337:8888
+    links:
+      - "jupyter-lab"

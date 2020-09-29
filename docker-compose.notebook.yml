@@ -1,0 +1,11 @@
+version: "3"
+services:
+  jupyter-notebook:
+    build:
+      context: ./services/notebook
+      dockerfile: Dockerfile
+    volumes:
+      - ./nbs/:/home/notebook/nbs/:z
+    ports:
+      - 8888:8888
+    command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root
