@@ -1,8 +1,9 @@
-build-lab:
-	time docker-compose build jupyter-lab
+build:
+	time docker-compose build
 
-run-lab:
-	docker-compose up jupyter-lab
+run:
+	docker-compose up
 
-lab-sh:
+lab-shell:
 	docker-compose run --rm jupyter-lab /bin/sh
+

@@ -11,6 +11,11 @@ services:
     tty: true # docker run -t
     env_file:
       - ./.env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
     command: jupyter lab --no-browser --allow-root --port=8888
 
   nginx:
@@ -19,3 +24,8 @@ services:
       - 1337:80
     depends_on:
       - "jupyter-lab"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"

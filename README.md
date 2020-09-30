@@ -20,7 +20,7 @@
 
 ### Usage
 
-1. Generate a password and replace it on /services/lab/conf/jupyter.py
+1. Generate a password and replace it on /services/lab/configs/jupyter_notebook_config.py
 
 ```sh
 ipython -c "from notebook.auth import passwd; passwd()"
@@ -28,11 +28,11 @@ ipython -c "from notebook.auth import passwd; passwd()"
 
 2. Build the image:
    ```sh
-   make build-lab
+   make build
    ```
 3. Run the container:
    ```sh
-   make run-lab
+   make run
    ```
 
 #### Virtual environments
