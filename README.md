@@ -20,7 +20,7 @@
 
 ### Usage
 
-1. Generate a password and replace it on /services/lab/configs/jupyter_notebook_config.py
+1. Generate a password and replace it on `.env` file's variables `LAB_PASSWORD` or `CLASSIC PASSWORD`. Run the command below inside the respective container shell with `make lab-shell` or `make classic-shell`.
 
 ```sh
 ipython -c "from notebook.auth import passwd; passwd()"

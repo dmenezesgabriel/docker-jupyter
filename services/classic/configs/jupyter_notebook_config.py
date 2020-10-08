@@ -12,8 +12,8 @@ c.NotebookApp.open_browser = False
 c.NotebookApp.base_url = "/"
 # Generate a password
 # ipython -c "from notebook.auth import passwd; passwd()"
-c.NotebookApp.password = os.environ.get("LAB_PASSWORD", "")
-c.NotebookApp.port = int(os.environ.get("PORT", 8888))
+c.NotebookApp.password = os.environ.get("CLASSIC_PASSWORD", "")
+# c.NotebookApp.port = int(os.environ.get("PORT", 8888))
 c.NotebookApp.allow_root = True
 c.NotebookApp.allow_password_change = True
 c.ConfigurableHTTPProxy.command = [

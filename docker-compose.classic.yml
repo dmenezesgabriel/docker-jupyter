@@ -1,0 +1,19 @@
+version: "3"
+services:
+  jupyter-classic:
+    build:
+      context: ./services/classic
+    volumes:
+      - ../notebooks/:/home/classic/nbs/:z
+    ports:
+      - 8888:8888
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    env_file:
+      - ./.env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
+    command: jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --port=8888
