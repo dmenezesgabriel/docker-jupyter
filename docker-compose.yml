@@ -4,7 +4,7 @@ services:
     build:
       context: ./services/lab
     volumes:
-      - ../notebooks/:/home/lab/nbs/:z
+      - "$NOTEBOOKS_PATH:/home/lab/nbs/"
     ports:
       - 8888:8888
     stdin_open: true # docker run -i
@@ -16,9 +16,10 @@ services:
       options:
         max-size: "1k"
         max-file: "3"
+    restart: unless-stopped
     command: jupyter lab --no-browser --allow-root --port=8888
 
-  nginx:
+  nginx-lab:
     build: ./services/nginx
     ports:
       - 1337:80
@@ -29,3 +30,4 @@ services:
       options:
         max-size: "1k"
         max-file: "3"
+    restart: unless-stopped
