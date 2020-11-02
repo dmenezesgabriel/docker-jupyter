@@ -14,3 +14,4 @@ python-language-server[all]==0.35.1
 rope==0.17.0
 yapf==0.30.0
 voila==0.2.3
+selenium
