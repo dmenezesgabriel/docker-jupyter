@@ -12,25 +12,27 @@ ENV PYTHONBUFFERED 1
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
-# Install dependencies
-RUN apt-get update && apt-get install -y wget curl unzip gnupg2
-# Adding trusting keys to apt for repositories
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-# Adding Google Chrome to the repositories
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    google-chrome-stable
+    fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 \
+    libnspr4 libnss3 lsb-release xdg-utils libxss1 libdbus-glib-1-2 \
+    curl unzip wget \
+    xvfb \
+    ffmpeg
 
-# Download the Chrome Driver
-RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+# install geckodriver and firefox
+RUN GECKODRIVER_VERSION=`curl https://github.com/mozilla/geckodriver/releases/latest | grep -Po 'v[0-9]+.[0-9]+.[0-9]+'` && \
+    wget https://github.com/mozilla/geckodriver/releases/download/$GECKODRIVER_VERSION/geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz && \
+    tar -zxf geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz -C /usr/local/bin && \
+    chmod +x /usr/local/bin/geckodriver && \
+    rm geckodriver-$GECKODRIVER_VERSION-linux64.tar.gz
 
-# Unzip the Chrome Driver into /usr/local/bin directory
-RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
-
-# Set display port as an environment variable
-ENV DISPLAY=:99
+RUN FIREFOX_SETUP=firefox-setup.tar.bz2 && \
+    apt-get purge firefox && \
+    wget -O $FIREFOX_SETUP "https://download.mozilla.org/?product=firefox-latest&os=linux64" && \
+    tar xjf $FIREFOX_SETUP -C /opt/ && \
+    ln -s /opt/firefox/firefox /usr/bin/firefox && \
+    rm $FIREFOX_SETUP
 
 # create the appropriate directories
 ENV HOME=/home
@@ -75,6 +77,7 @@ RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
     jupyter labextension install @ryantam626/jupyterlab_code_formatter && \
+    jupyter labextension install spreadsheet-editor \
     jupyter lab clean && \
     jupyter lab build --minimize=False --dev-build=False --debug && \
     jupyter serverextension enable --py jupyterlab_code_formatter

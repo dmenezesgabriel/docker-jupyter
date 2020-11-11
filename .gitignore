@@ -10,6 +10,9 @@ nbs/*
 .pytest_cache/
 .env
 
+# Logs
+geckodriver.log
+
 # Jupyter
 .ipynb_checkpoints
 .vscode

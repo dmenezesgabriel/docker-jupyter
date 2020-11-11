@@ -7,3 +7,5 @@ run:
 lab-shell:
 	docker-compose run --rm jupyter-lab /bin/sh
 
+down:
+	docker-compose down -v
