@@ -7,6 +7,9 @@ run:
 lab-shell:
 	docker-compose run --rm jupyter-lab /bin/sh
 
+down:
+	docker-compose down -v
+
 # Raspberry pi
 build-pi:
 	time docker-compose -f docker-compose.pi.yml build jupyter-lab
@@ -16,3 +19,4 @@ run-pi:
 
 down-pi:
 	docker-compose -f docker-compose.pi.yml down
+
