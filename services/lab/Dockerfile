@@ -76,8 +76,10 @@ RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
     jupyter labextension install @jupyterlab/toc --no-build && \
     jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
-    jupyter labextension install @ryantam626/jupyterlab_code_formatter && \
-    jupyter labextension install spreadsheet-editor \
+    jupyter labextension install @ryantam626/jupyterlab_code_formatter --no-build && \
+    jupyter labextension install spreadsheet-editor --no-build && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build && \
+    jupyter labextension install qgrid2 --no-build && \
     jupyter lab clean && \
     jupyter lab build --minimize=False --dev-build=False --debug && \
     jupyter serverextension enable --py jupyterlab_code_formatter
