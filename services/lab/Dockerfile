@@ -76,7 +76,7 @@ RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install @ijmbarr/jupyterlab_spellchecker --no-build && \
     jupyter labextension install @jupyterlab/toc@4.0.0 --no-build && \
     jupyter labextension install @aquirdturtle/collapsible_headings --no-build && \
-    jupyter labextension install @ryantam626/jupyterlab_code_formatter@1.3.8  --no-build && \
+    jupyter labextension install @ryantam626/jupyterlab_code_formatter@1.3.6  --no-build && \
     jupyter labextension install spreadsheet-editor@0.4.0 --no-build && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0 --no-build && \
     jupyter labextension install qgrid2 --no-build && \
