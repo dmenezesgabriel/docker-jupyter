@@ -7,11 +7,13 @@
 - Oh my ZSH terminal
 - Vim text editor
 - Dracula theme
-- Markdown cells spellcheck (en_US)
+- Markdown cells spellcheck
 - Code completion
 - Code formatter
 - Table fo contents
 - Collapsible headers
+- .csv template
+- Qgrid view
 
 ### Requirements
 
@@ -20,10 +22,10 @@
 
 ### Usage
 
-1. Generate a password and replace it on /services/lab/configs/jupyter_notebook_config.py
+1. Generate a password and place it on a `.env` variable called `LAB_PASSWORD`
 
 ```sh
-ipython -c "from notebook.auth import passwd; passwd()"
+make psswd
 ```
 
 2. Build the image:
