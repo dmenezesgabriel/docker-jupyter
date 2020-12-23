@@ -9,7 +9,7 @@ c.NotebookApp.allow_origin = "*"  # put your public IP Address here
 c.NotebookApp.ip = "*"
 c.NotebookApp.allow_remote_access = True
 c.NotebookApp.open_browser = False
-c.NotebookApp.base_url = "/"
+c.NotebookApp.base_url = "/jupyter"
 # Generate a password
 # ipython -c "from notebook.auth import passwd; passwd()"
 c.NotebookApp.password = os.environ.get("LAB_PASSWORD", "")
