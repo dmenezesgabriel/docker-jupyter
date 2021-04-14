@@ -2,23 +2,25 @@
 
 ## Jypyter lab
 
-### Features
+### Integrations
 
-- Oh my ZSH terminal
-- Vim text editor
-- Dracula theme
-- Markdown cells spellcheck
-- Code completion
-- Code formatter
-- Table fo contents
-- Collapsible headers
-- .csv template
-- Qgrid view
+- [Oh my ZSH](https://ohmyz.sh/)
+- [Vim text editor](https://www.vim.org/)
+- [Dracula theme](https://draculatheme.com/)
+- [Spellchecker](https://github.com/jupyterlab-contrib/spellchecker)
+- [Code completion](https://github.com/krassowski/jupyterlab-lsp)
+- [Code formatter](https://github.com/ryantam626/jupyterlab_code_formatter)
+- [Table fo contents](https://github.com/jupyterlab/jupyterlab-toc)
+- [Collapsible headers](https://github.com/aquirdTurtle/Collapsible_Headings)
+- [.csv template](https://github.com/krassowski/jupyterlab-spreadsheet-editor)
+- [Qgrid](https://github.com/quantopian/qgrid)
+- [Jupytext](https://github.com/mwouts/jupytext)
 
 ### Requirements
 
 - Docker
 - Docker Compose
+- Makefile
 
 ### Usage
 
@@ -70,7 +72,3 @@ Use the command below on terminal
 ```sh
 zsh
 ```
-
-### TODO
-
-- Portuguese spellchecker
