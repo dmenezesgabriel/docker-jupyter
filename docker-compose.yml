@@ -3,8 +3,9 @@ services:
   jupyter-lab:
     build:
       context: ./services/lab
+      dockerfile: ${DOCKER_FILE:-Dockerfile}
     volumes:
-      - "$NOTEBOOKS_PATH:/home/lab/nbs/:z"
+      - "${NOTEBOOKS_PATH:-/home/jupyter_notebooks}:/home/lab/nbs/"
     ports:
       - 8888:8888
     stdin_open: true # docker run -i
