@@ -80,6 +80,7 @@ RUN jupyter labextension install @karosc/jupyterlab_dracula --no-build && \
     jupyter labextension install spreadsheet-editor@0.4.0 --no-build && \
     jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0 --no-build && \
     jupyter labextension install qgrid2 --no-build && \
+    jupyter labextension install jupyterlab-jupytext@1.2.2 --no-build && \
     jupyter lab clean && \
     jupyter lab build --minimize=False --dev-build=False --debug && \
     jupyter serverextension enable --py jupyterlab_code_formatter
