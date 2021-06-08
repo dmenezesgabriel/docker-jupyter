@@ -5,13 +5,11 @@ services:
       context: ./services/lab
       dockerfile: ${DOCKER_FILE:-Dockerfile}
     volumes:
-      - "${NOTEBOOKS_PATH:-/home/jupyter_notebooks}:/home/lab/nbs/"
+      - "${NOTEBOOKS_PATH:-./notebooks}:/home/lab/nbs"
     ports:
       - 8888:8888
     stdin_open: true # docker run -i
     tty: true # docker run -t
-    env_file:
-      - ./.env
     logging:
       driver: "json-file"
       options:
@@ -19,16 +17,3 @@ services:
         max-file: "3"
     restart: unless-stopped
     command: jupyter lab --no-browser --allow-root --port=8888
-
-  nginx-lab:
-    build: ./services/nginx
-    ports:
-      - 1337:80
-    depends_on:
-      - "jupyter-lab"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1k"
-        max-file: "3"
-    restart: unless-stopped

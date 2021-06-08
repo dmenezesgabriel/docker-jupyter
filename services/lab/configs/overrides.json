@@ -1,6 +1,6 @@
 {
   "@jupyterlab/apputils-extension:themes": {
-    "theme": "Dracula"
+    "theme": "JLDracula"
   },
   "@jupyterlab/notebook-extension:tracker": {
     "codeCellConfig": { "lineNumbers": true }

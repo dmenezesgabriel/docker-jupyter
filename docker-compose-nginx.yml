@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nginx-lab:
+    build: ./services/nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - "jupyter-lab"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
+        max-file: "3"
+    restart: unless-stopped

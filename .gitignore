@@ -16,3 +16,6 @@ geckodriver.log
 # Jupyter
 .ipynb_checkpoints
 .vscode
+
+# Folders
+notebooks/
