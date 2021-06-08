@@ -46,4 +46,4 @@ RUN pip3 --no-cache install -r /usr/src/app/requirements.txt
 COPY ./configs/pycodestyle /home/.config/pycodestyle
 COPY ./configs/jupyter_notebook_config.py /home/.jupyter/jupyter_notebook_config.py
 COPY ./configs/jupyter_notebook_config.json /usr/local/etc/jupyter/jupyter_notebook_config.json
-COPY ./configs/overrides.json /usr/local/share/jupyter/lab/settings/overrides.json
+COPY ./configs/overrides.json /opt/venv/share/jupyter/lab/settings/overrides.json

@@ -1,8 +1,5 @@
 {
   "@jupyterlab/apputils-extension:themes": {
-    "theme": "JLDracula"
-  },
-  "@jupyterlab/notebook-extension:tracker": {
-    "codeCellConfig": { "lineNumbers": true }
+    "theme": "JupyterLab Light"
   }
 }
